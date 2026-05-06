@@ -27,7 +27,7 @@
 
             <!-- Theme Toggle Button -->
             <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
-                <i class="fa-solid fa-moon"></i>
+                <i class="fa-solid fa-sun"></i>
             </button>
         </div>
     </nav>
@@ -219,10 +219,11 @@
 
         // Apply saved theme on load
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-theme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
             themeIcon.classList.replace('fa-moon', 'fa-sun');
         }
+
 
         themeToggle.addEventListener('click', () => {
             const isDark = body.classList.toggle('dark-theme');
@@ -245,8 +246,7 @@
 
             window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${bodyContent}`;
         });
-
-        // Intersection Observer for scroll-based active state
+        // Navigation Active State Logic
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('section');
         const options = {
@@ -314,7 +314,28 @@
             });
         }
 
-        initChart(body.classList.contains('dark-theme'));
+        initChart(body.classList.contains('light-theme'));
+
+        // Update chart on theme toggle
+        themeToggle.addEventListener('click', () => {
+            setTimeout(() => {
+                initChart(body.classList.contains('light-theme'));
+            }, 100);
+        });
+
+        // Smooth Scroll Snap Helper
+        let isScrolling = false;
+        window.addEventListener('wheel', (e) => {
+            if (isScrolling) return;
+
+            // Logic to potentially smooth out the snap if needed
+            // For now, native mandatory snapping is handled by the browser
+            // But we can add a slight debounce to prevent jitter
+            isScrolling = true;
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        }, { passive: true });
     </script>
 </body>
 
