@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analyst Portfolio | Insights & Impact</title>
+    <meta name="description"
+        content="Portfolio of a Data Analyst specializing in transforming complex data into actionable insights through visualization and statistical analysis.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js for Data Viz -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav class="nav-container">
+        <div class="nav-bar" id="main-nav">
+            <a href="#home" class="nav-link active" id="nav-home">Home</a>
+            <a href="#about" class="nav-link" id="nav-about">About</a>
+            <a href="#skills" class="nav-link" id="nav-skills">Skills</a>
+            <a href="#projects" class="nav-link" id="nav-projects">Projects</a>
+            <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
+
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <main>
+        <section id="home">
+            <div class="section-content reveal">
+                <div class="hero-container">
+                    <div class="hero-text">
+                        <span class="hero-badge">Available for Projects</span>
+                        <h1 style="font-size: 4.5rem; margin-bottom: 20px; line-height: 1.1;">Data <span
+                                class="gradient-text">Storytelling</span> & Analysis</h1>
+                        <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 30px;">I bridge the
+                            gap between complex data and strategic decision-making. Specializing in high-impact
+                            visualizations and statistical modeling.</p>
+                        <a href="#projects" class="nav-link active"
+                            style="display: inline-block; padding: 15px 35px;">View Projects</a>
+                    </div>
+                    <div class="hero-image reveal">
+                        <img src="assets/hero.png" alt="Data Visualization Hero">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section-content reveal">
+                <h2 style="font-size: 3rem; margin-bottom: 40px; text-align: center;">About <span
+                        class="gradient-text">Me</span></h2>
+                <div class="about-grid">
+                    <div class="about-card reveal">
+                        <h3 style="margin-bottom: 15px; color: var(--accent-primary);">The Analyst</h3>
+                        <p>With a background in statistical analysis and business intelligence, I thrive on turning
+                            messy datasets into clear, actionable insights. My approach combines technical rigor with a
+                            keen eye for business impact.</p>
+                    </div>
+                    <div class="about-card reveal">
+                        <h3 style="margin-bottom: 15px; color: var(--accent-secondary);">The Mission</h3>
+                        <p>My goal is to help organizations make data-driven decisions that lead to measurable growth. I
+                            believe that every dataset tells a story, and I am the translator who brings that story to
+                            life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="section-content reveal">
+                <h2 style="font-size: 3rem; margin-bottom: 20px; text-align: center;">Technical <span
+                        class="gradient-text">Expertise</span></h2>
+
+                <div class="skills-main-container"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 40px;">
+                    <!-- Skills Chart -->
+                    <div class="about-card reveal" style="padding: 20px;">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+
+                    <!-- Skills Icons Grid -->
+                    <div class="skills-container" style="margin-top: 0;">
+                        <div class="skill-card reveal">
+                            <i class="fa-brands fa-python skill-icon" style="color: #3776AB;"></i>
+                            <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-card reveal">
+                            <i class="fa-solid fa-database skill-icon" style="color: #336791;"></i>
+                            <span class="skill-name">SQL</span>
+                        </div>
+                        <div class="skill-card reveal">
+                            <i class="fa-solid fa-chart-line skill-icon" style="color: #E87333;"></i>
+                            <span class="skill-name">Tableau</span>
+                        </div>
+                        <div class="skill-card reveal">
+                            <i class="fa-solid fa-square-poll-vertical skill-icon" style="color: #F2C811;"></i>
+                            <span class="skill-name">Power BI</span>
+                        </div>
+                        <div class="skill-card reveal">
+                            <i class="fa-solid fa-microchip skill-icon" style="color: #00d2ff;"></i>
+                            <span class="skill-name">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="section-content reveal">
+                <h2 style="font-size: 3rem; margin-bottom: 20px; text-align: center;">Selected <span
+                        class="gradient-text">Work</span></h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="assets/ecommerce.png" alt="E-commerce Dashboard"
+                                style="width: 100%; height: 200px; object-fit: cover;">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">SQL</span>
+                                <span class="tag">Power BI</span>
+                            </div>
+                            <h3 class="project-title">E-commerce Sales Insights</h3>
+                            <p class="project-description">Developed a dynamic dashboard to track KPI performance across
+                                multiple regions, identifying a 15% revenue leakage in logistics.</p>
+                            <a href="#" class="nav-link"
+                                style="padding: 10px 0; font-weight: 600; color: var(--accent-primary);">View Case Study
+                                <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="assets/churn.png" alt="Churn Model"
+                                style="width: 100%; height: 200px; object-fit: cover;">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">ML</span>
+                            </div>
+                            <h3 class="project-title">Customer Churn Model</h3>
+                            <p class="project-description">Built a predictive model using Random Forest to identify
+                                at-risk customers, achieving 88% accuracy and reducing churn by 12%.</p>
+                            <a href="#" class="nav-link"
+                                style="padding: 10px 0; font-weight: 600; color: var(--accent-primary);">View Github <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="assets/financial.png" alt="Financial Trends"
+                                style="width: 100%; height: 200px; object-fit: cover;">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="tag">Tableau</span>
+                                <span class="tag">Statistics</span>
+                            </div>
+                            <h3 class="project-title">Financial Market Trends</h3>
+                            <p class="project-description">A deep-dive statistical analysis of crypto market
+                                correlations during Q1-Q2 2024 using advanced time-series forecasting.</p>
+                            <a href="#" class="nav-link"
+                                style="padding: 10px 0; font-weight: 600; color: var(--accent-primary);">View Report <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-content reveal">
+                <div class="contact-container">
+                    <h2 style="font-size: 3rem; margin-bottom: 20px;">Get in <span class="gradient-text">Touch</span>
+                    </h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 40px;">Have a project in mind or just want to
+                        chat about data? Drop me a message below.</p>
+
+                    <form class="contact-form reveal">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" rows="5" placeholder="How can I help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/hem1t" class="social-icon" target="_blank"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/hem1t" class="social-icon" target="_blank"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://twitter.com/hem1t" class="social-icon" target="_blank"><i
+                                class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="padding: 60px 20px; text-align: center; border-top: 1px solid var(--glass-border); background: var(--bg-color);">
+        <p style="color: var(--text-secondary);">&copy; 2026 Data Analyst Portfolio. Built with precision and insights.
+        </p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--glass-border);">
+            Designed for High Impact Decision Making | <a href="LICENSE" style="color: inherit; text-decoration: underline;">Project License</a>
+        </p>
+    </footer>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const body = document.body;
+
+        // Check for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Contact Form Email Client Integration
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const emailAddress = "sunny10fb@gmail.com";
+
+            const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+            const bodyContent = encodeURIComponent(`Hello hem1t,\n\n${message}\n\nBest regards,\n${name}`);
+
+            window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${bodyContent}`;
+        });
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const isLight = body.classList.contains('light-theme');
+
+            // Update Icon
+            if (isLight) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Navigation Active State Logic
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Intersection Observer for scroll-based active state
+        const sections = document.querySelectorAll('section');
+        const options = {
+            threshold: 0.7
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, options);
+
+        sections.forEach(section => observer.observe(section));
+
+        // Reveal Animations Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Chart.js - Skills Radar Chart
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        let skillsChart;
+
+        function initChart(isLight = false) {
+            const accentColor = isLight ? '#00a2ff' : '#00d2ff';
+            const gridColor = isLight ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)';
+            const textColor = isLight ? '#4a4a5e' : '#a0a0a8';
+
+            if (skillsChart) skillsChart.destroy();
+
+            skillsChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Python', 'SQL', 'Tableau', 'Power BI', 'Machine Learning', 'Statistics'],
+                    datasets: [{
+                        label: 'Proficiency Level',
+                        data: [90, 95, 85, 80, 75, 85],
+                        backgroundColor: 'rgba(0, 210, 255, 0.2)',
+                        borderColor: accentColor,
+                        borderWidth: 2,
+                        pointBackgroundColor: accentColor,
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: accentColor
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: { color: gridColor },
+                            grid: { color: gridColor },
+                            pointLabels: { color: textColor, font: { size: 12, family: 'Inter' } },
+                            ticks: { display: false, stepSize: 20 },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        initChart(body.classList.contains('light-theme'));
+
+        // Update chart on theme toggle
+        themeToggle.addEventListener('click', () => {
+            setTimeout(() => {
+                initChart(body.classList.contains('light-theme'));
+            }, 100);
+        });
+
+        // Smooth Scroll Snap Helper
+        let isScrolling = false;
+        window.addEventListener('wheel', (e) => {
+            if (isScrolling) return;
+
+            // Logic to potentially smooth out the snap if needed
+            // For now, native mandatory snapping is handled by the browser
+            // But we can add a slight debounce to prevent jitter
+            isScrolling = true;
+            setTimeout(() => {
+                isScrolling = false;
+            }, 1000);
+        }, { passive: true });
+    </script>
+</body>
+
+</html>
