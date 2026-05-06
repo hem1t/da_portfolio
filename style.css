@@ -1,19 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --bg-color: #0a0a0c;
-    --accent-primary: #00d2ff;
-    --accent-secondary: #9d50bb;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a8;
-    --glass-bg: rgba(20, 20, 25, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Light Theme Variables */
-body.light-theme {
     --bg-color: #f8f9fa;
     --accent-primary: #00a2ff;
     --accent-secondary: #bf5af2;
@@ -22,6 +9,19 @@ body.light-theme {
     --glass-bg: rgba(255, 255, 255, 0.8);
     --glass-border: rgba(0, 0, 0, 0.05);
     --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+    --bg-color: #0a0a0c;
+    --accent-primary: #00d2ff;
+    --accent-secondary: #9d50bb;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a8;
+    --glass-bg: rgba(20, 20, 25, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
 }
 
 * {
@@ -43,8 +43,6 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
-    min-height: 200vh;
-    /* For scrolling demonstration */
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -488,4 +486,102 @@ section {
         padding: 8px 12px;
         font-size: 0.8rem;
     }
+}
+
+/* Helper Classes for Clean HTML */
+.hero-title {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 15px 35px;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.about-card-title {
+    margin-bottom: 15px;
+}
+
+.about-card-title.primary {
+    color: var(--accent-primary);
+}
+
+.about-card-title.secondary {
+    color: var(--accent-secondary);
+}
+
+.skills-main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.chart-card {
+    padding: 20px;
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-link {
+    padding: 10px 0;
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.contact-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.main-footer {
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    background: var(--bg-color);
+}
+
+.footer-text {
+    color: var(--text-secondary);
+}
+
+.footer-subtext {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: var(--glass-border);
+}
+
+.footer-subtext a {
+    color: inherit;
+    text-decoration: underline;
 }
