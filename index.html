@@ -27,7 +27,7 @@
 
             <!-- Theme Toggle Button -->
             <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
-                <i class="fa-solid fa-moon"></i>
+                <i class="fa-solid fa-sun"></i>
             </button>
         </div>
     </nav>
@@ -218,7 +218,8 @@
         <p style="color: var(--text-secondary);">&copy; 2026 Data Analyst Portfolio. Built with precision and insights.
         </p>
         <p style="font-size: 0.8rem; margin-top: 10px; color: var(--glass-border);">
-            Designed for High Impact Decision Making | <a href="LICENSE" style="color: inherit; text-decoration: underline;">Project License</a>
+            Designed for High Impact Decision Making | <a href="LICENSE"
+                style="color: inherit; text-decoration: underline;">Project License</a>
         </p>
     </footer>
 
@@ -232,8 +233,23 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             body.classList.add('light-theme');
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
         }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = body.classList.contains('dark-theme');
+
+            // Update Icon
+            if (isDark) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+                body.classList.toggle('light-theme');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+                body.classList.toggle('dark-theme');
+            }
+        });
 
         // Contact Form Email Client Integration
         const contactForm = document.querySelector('.contact-form');
@@ -248,20 +264,6 @@
             const bodyContent = encodeURIComponent(`Hello hem1t,\n\n${message}\n\nBest regards,\n${name}`);
 
             window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${bodyContent}`;
-        });
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-theme');
-            const isLight = body.classList.contains('light-theme');
-
-            // Update Icon
-            if (isLight) {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'light');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'dark');
-            }
         });
 
         // Navigation Active State Logic
@@ -312,10 +314,10 @@
         const ctx = document.getElementById('skillsChart').getContext('2d');
         let skillsChart;
 
-        function initChart(isLight = false) {
-            const accentColor = isLight ? '#00a2ff' : '#00d2ff';
-            const gridColor = isLight ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)';
-            const textColor = isLight ? '#4a4a5e' : '#a0a0a8';
+        function initChart(isDark = false) {
+            const accentColor = isDark ? '#00d2ff' : '#00a2ff';
+            const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+            const textColor = isDark ? '#a0a0a8' : '#4a4a5e';
 
             if (skillsChart) skillsChart.destroy();
 
@@ -353,12 +355,12 @@
             });
         }
 
-        initChart(body.classList.contains('light-theme'));
+        initChart(body.classList.contains('dark-theme'));
 
         // Update chart on theme toggle
         themeToggle.addEventListener('click', () => {
             setTimeout(() => {
-                initChart(body.classList.contains('light-theme'));
+                initChart(body.classList.contains('dark-theme'));
             }, 100);
         });
 

@@ -1,19 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --bg-color: #0a0a0c;
-    --accent-primary: #00d2ff;
-    --accent-secondary: #9d50bb;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a8;
-    --glass-bg: rgba(20, 20, 25, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Light Theme Variables */
-body.light-theme {
     --bg-color: #f8f9fa;
     --accent-primary: #00a2ff;
     --accent-secondary: #bf5af2;
@@ -22,6 +9,19 @@ body.light-theme {
     --glass-bg: rgba(255, 255, 255, 0.8);
     --glass-border: rgba(0, 0, 0, 0.05);
     --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Theme Variables */
+body.dark-theme {
+    --bg-color: #0a0a0c;
+    --accent-primary: #00d2ff;
+    --accent-secondary: #9d50bb;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a8;
+    --glass-bg: rgba(20, 20, 25, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
 }
 
 * {
