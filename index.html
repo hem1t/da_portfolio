@@ -27,7 +27,7 @@
 
             <!-- Theme Toggle Button -->
             <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
-                <i class="fa-solid fa-sun"></i>
+                <i class="fa-solid fa-moon"></i>
             </button>
         </div>
     </nav>
@@ -171,7 +171,7 @@
         <section id="contact">
             <div class="section-content">
                 <div class="contact-container">
-                    <h2 class="section-title" style="text-align: left;">Get in <span class="gradient-text">Touch</span>
+                    <h2 class="section-title text-left">Get in <span class="gradient-text">Touch</span>
                     </h2>
                     <p class="contact-subtitle">Have a project in mind or just want to
                         chat about data? Drop me a message below.</p>
@@ -201,13 +201,10 @@
         </section>
     </main>
 
-    <footer
-        style="padding: 60px 20px; text-align: center; border-top: 1px solid var(--glass-border); background: var(--bg-color);">
-        <p style="color: var(--text-secondary);">&copy; 2026 Data Analyst Portfolio. Built with precision and insights.
-        </p>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--glass-border);">
-            Designed for High Impact Decision Making | <a href="LICENSE"
-                style="color: inherit; text-decoration: underline;">Project License</a>
+    <footer class="main-footer">
+        <p class="footer-text">&copy; 2026 Data Analyst Portfolio. Built with precision and insights.</p>
+        <p class="footer-subtext">
+            Designed for High Impact Decision Making | <a href="LICENSE">Project License</a>
         </p>
     </footer>
 
@@ -219,11 +216,10 @@
 
         // Apply saved theme on load
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            body.classList.add('light-theme');
+        if (savedTheme === "dark") {
+            body.classList.add('dark-theme');
             themeIcon.classList.replace('fa-moon', 'fa-sun');
         }
-
 
         themeToggle.addEventListener('click', () => {
             const isDark = body.classList.toggle('dark-theme');
@@ -314,28 +310,8 @@
             });
         }
 
-        initChart(body.classList.contains('light-theme'));
+        initChart(body.classList.contains('dark-theme'));
 
-        // Update chart on theme toggle
-        themeToggle.addEventListener('click', () => {
-            setTimeout(() => {
-                initChart(body.classList.contains('light-theme'));
-            }, 100);
-        });
-
-        // Smooth Scroll Snap Helper
-        let isScrolling = false;
-        window.addEventListener('wheel', (e) => {
-            if (isScrolling) return;
-
-            // Logic to potentially smooth out the snap if needed
-            // For now, native mandatory snapping is handled by the browser
-            // But we can add a slight debounce to prevent jitter
-            isScrolling = true;
-            setTimeout(() => {
-                isScrolling = false;
-            }, 1000);
-        }, { passive: true });
     </script>
 </body>
 
