@@ -21,12 +21,25 @@ def save_version(version):
         json.dump(version, f, indent=4)
 
 def minify_html(content):
-    # Remove comments
+    # Remove HTML comments
     content = re.sub(r'<!--(.*?)-->', '', content, flags=re.DOTALL)
     # Remove whitespace between tags
     content = re.sub(r'>\s+<', '><', content)
     # Remove extra spaces
     content = re.sub(r'\s+', ' ', content)
+    return content.strip()
+
+def minify_js(content):
+    # Remove single line comments
+    content = re.sub(r'//.*', '', content)
+    # Remove multi-line comments
+    content = re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL)
+    # Collapse multiple spaces/tabs
+    content = re.sub(r'[ \t]+', ' ', content)
+    # Remove whitespace at start/end of lines
+    content = re.sub(r'^\s+|\s+$', '', content, flags=re.MULTILINE)
+    # Remove empty lines
+    content = re.sub(r'\n\s*\n', '\n', content)
     return content.strip()
 
 def minify_css(content):
@@ -61,14 +74,14 @@ def needs_rebuild():
 
 def build():
     if not needs_rebuild():
-        print("✨ Build is already up to date. Skipping...")
+        print("Build is already up to date. Skipping...")
         return True
 
-    print("🚀 Building project...")
+    print("Building project...")
     
     # Process all files in src directory
     if not os.path.exists(SRC_DIR):
-        print(f"❌ Error: {SRC_DIR} directory not found.")
+        print(f"Error: {SRC_DIR} directory not found.")
         return
 
     for root, dirs, files in os.walk(SRC_DIR):
@@ -80,26 +93,29 @@ def build():
             # Create destination subdirectories if they don't exist
             os.makedirs(os.path.dirname(dest_path), exist_ok=True)
 
-            if filename.endswith(('.html', '.css')):
+            if filename.endswith(('.html', '.css', '.js')):
                 with open(src_path, 'r', encoding='utf-8') as f:
                     content = f.read()
                 
                 if filename.endswith('.html'):
-                    print(f"📦 Minifying HTML: {rel_path}")
+                    print(f"Minifying HTML: {rel_path}")
                     processed_content = minify_html(content)
-                else: # .css
-                    print(f"🎨 Minifying CSS: {rel_path}")
+                elif filename.endswith('.css'):
+                    print(f"Minifying CSS: {rel_path}")
                     processed_content = minify_css(content)
+                else: # .js
+                    print(f"Minifying JS: {rel_path}")
+                    processed_content = minify_js(content)
                     
                 with open(dest_path, 'w', encoding='utf-8') as f:
                     f.write(processed_content)
             else:
-                print(f"📄 Copying file: {rel_path}")
+                print(f"Copying file: {rel_path}")
                 shutil.copy2(src_path, dest_path)
                 
-            print(f"✅ Processed: {rel_path}")
+            print(f"Processed: {rel_path}")
 
-    print("✨ Build complete! Project is ready in the root directory.")
+    print("Build complete! Project is ready in the root directory.")
     return True
 
 def publish():
@@ -118,7 +134,7 @@ def publish():
     
     new_version_str = f"{version['major']}.{version['minor']}.{version['patch']}"
     save_version(version)
-    print(f"✅ Version updated to {new_version_str}")
+    print(f"Version updated to {new_version_str}")
     
     commit_msg = input("Enter commit message: ")
     if not commit_msg:
@@ -128,13 +144,13 @@ def publish():
         subprocess.run(['git', 'add', '.'], check=True)
         subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
         subprocess.run(['git', 'push'], check=True)
-        print("🚀 Published successfully!")
+        print("Published successfully!")
     except subprocess.CalledProcessError as e:
-        print(f"❌ Git error: {e}")
+        print(f"Git error: {e}")
 
 def preview():
-    print("🌐 Opening preview...")
-    src_index = os.path.abspath('index.html')
+    print("Opening preview...")
+    src_index = os.path.abspath('docs/index.html')
     webbrowser.open(f"file://{src_index}")
 
 def main():
