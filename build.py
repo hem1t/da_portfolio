@@ -127,7 +127,7 @@ def publish():
     try:
         subprocess.run(['git', 'add', '.'], check=True)
         subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
-        # subprocess.run(['git', 'push'], check=True) # Optional: uncomment if push is desired
+        subprocess.run(['git', 'push'], check=True)
         print("🚀 Published successfully!")
     except subprocess.CalledProcessError as e:
         print(f"❌ Git error: {e}")
