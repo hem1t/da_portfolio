@@ -8,7 +8,7 @@ import sys
 
 VERSION_FILE = 'version.json'
 SRC_DIR = 'src'
-DIST_DIR = 'build' # Root folder as requested
+DIST_DIR = 'docs' # Root folder as requested
 
 def get_version():
     if not os.path.exists(VERSION_FILE):
