@@ -24,7 +24,7 @@ themeToggle.addEventListener('click', () => {
     themeIcon.classList.replace(isDark ? 'fa-moon' : 'fa-sun', isDark ? 'fa-sun' : 'fa-moon');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     if (typeof initChart === 'function') initChart(isDark);
-    
+
     // Notify background iframe of theme change if needed
     if (bgFrame && bgFrame.contentWindow) {
         bgFrame.contentWindow.postMessage({ type: 'theme-change', isDark }, '*');
@@ -35,10 +35,10 @@ themeToggle.addEventListener('click', () => {
 window.addEventListener('mousemove', (e) => {
     const bgFrame = document.getElementById('bg-frame');
     if (bgFrame && bgFrame.contentWindow) {
-        bgFrame.contentWindow.postMessage({ 
-            type: 'mouse-move', 
-            x: e.clientX, 
-            y: e.clientY 
+        bgFrame.contentWindow.postMessage({
+            type: 'mouse-move',
+            x: e.clientX,
+            y: e.clientY
         }, '*');
     }
 });
@@ -99,10 +99,10 @@ function initChart(isDark = false) {
     skillsChart = new Chart(chartCtx, {
         type: 'radar',
         data: {
-            labels: ['Python', 'SQL', 'Tableau', 'Power BI', 'Machine Learning', 'Statistics'],
+            labels: ['Python', 'SQL', 'Tableau', 'Power BI', 'Statistics'],
             datasets: [{
                 label: 'Proficiency Level',
-                data: [90, 95, 85, 80, 75, 85],
+                data: [70, 10, 0, 0, 0],
                 backgroundColor: 'rgba(0, 210, 255, 0.2)',
                 borderColor: accentColor,
                 borderWidth: 2,
