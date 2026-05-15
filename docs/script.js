@@ -60,10 +60,10 @@ const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
 const textColor = isDark ? '#a0a0a8' : '#4a4a5e';if (skillsChart) skillsChart.destroy();skillsChart = new Chart(chartCtx, {
 type: 'radar',
 data: {
-labels: ['Python', 'SQL', 'Tableau', 'Power BI', 'Statistics'],
+labels: ['Python', 'SQL', 'Tableau', 'Power BI', 'Statistics', 'Machine Learning', 'Economics', 'Finance'],
 datasets: [{
 label: 'Proficiency Level',
-data: [70, 10, 0, 0, 0],
+data: [70, 10, 0, 0, 5, 0, 5, 0],
 backgroundColor: 'rgba(0, 210, 255, 0.2)',
 borderColor: accentColor,
 borderWidth: 2,

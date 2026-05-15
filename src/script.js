@@ -99,10 +99,10 @@ function initChart(isDark = false) {
     skillsChart = new Chart(chartCtx, {
         type: 'radar',
         data: {
-            labels: ['Python', 'SQL', 'Tableau', 'Power BI', 'Statistics'],
+            labels: ['Python', 'SQL', 'Tableau', 'Power BI', 'Statistics', 'Machine Learning', 'Economics', 'Finance'],
             datasets: [{
                 label: 'Proficiency Level',
-                data: [70, 10, 0, 0, 0],
+                data: [70, 10, 0, 0, 5, 0, 5, 0],
                 backgroundColor: 'rgba(0, 210, 255, 0.2)',
                 borderColor: accentColor,
                 borderWidth: 2,
